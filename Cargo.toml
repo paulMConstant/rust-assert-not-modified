@@ -1,0 +1,16 @@
+[package]
+name = "assert-not-modified"
+version = "0.1.0"
+edition = "2018"
+
+description = "Wrapper function which checks that the given closure does not modify input data. This is helpful when checking that a function which returns Err(...) does not have side-effects."
+
+authors = ["Paul Constant <constantpaul@hotmail.fr>"]
+repository = "https://github.com/paulMConstant/rust-assert-not-modified"
+
+license = "GPL-3.0"
+
+keywords = ["assert", "test"]
+categories = ["development-tools::testing"]
+
+[dependencies]
