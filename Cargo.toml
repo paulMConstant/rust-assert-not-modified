@@ -4,6 +4,7 @@ version = "0.1.2"
 edition = "2018"
 
 description = "Intended for tests : Wrapper function which checks that the given closure does not modify input data."
+readme = "README.md"
 
 authors = ["Paul Constant <constantpaul@hotmail.fr>"]
 repository = "https://github.com/paulMConstant/rust-assert-not-modified"
