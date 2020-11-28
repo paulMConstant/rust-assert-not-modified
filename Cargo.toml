@@ -1,6 +1,6 @@
 [package]
 name = "assert-not-modified"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 
 description = "Intended for tests : Wrapper function which checks that the given closure does not modify input data."
