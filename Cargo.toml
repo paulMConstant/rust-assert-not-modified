@@ -1,9 +1,9 @@
 [package]
 name = "assert-not-modified"
-version = "0.1.2"
+version = "1.0.0"
 edition = "2018"
 
-description = "Intended for tests : Wrapper function which checks that the given closure does not modify input data."
+description = "Macro which, given a variable and a block of code, executes the block of code and checks that the variable has not changed."
 readme = "README.md"
 
 authors = ["Paul Constant <constantpaul@hotmail.fr>"]
@@ -11,7 +11,7 @@ repository = "https://github.com/paulMConstant/rust-assert-not-modified"
 
 license = "GPL-3.0"
 
-keywords = ["assert", "test"]
+keywords = ["assert", "test", "mutate", "modify", "macro"]
 categories = ["development-tools::testing"]
 
 [dependencies]

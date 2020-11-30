@@ -1,27 +1,31 @@
 # assert-not-modified
 
-Rust wrapper function which checks that the given closure does not modify input data.
+Rust macro which, given a variable and a block of code, executes the block of code and checks that 
+the variable has not changed.
 
-This is helpful when checking that a function which returns Err(...) does not have
-side-effects.
+For instance, this can check that a function does not have side effects.
 
-## Example
+The given variable must implement Clone and Debug.
+
+### Panics
+
+Panics if data is modified with the message "Data was modified where it should not have been".
+
+### Example
 
 ```rust
-use assert_not_modified::assert_not_modified;
+#[macro_use] extern crate assert_not_modified;
 
-// This bugged function wil return Err but still modify the data.
-fn misleading_err(x: &mut i32) -> Result<(), String> {
+// This function returns Err but modifies x anyway. This is misleading.
+fn modify_x_or_err(x: &mut i32) -> Result<(), String> {
     *x = *x + 1;
-    // Throws an error but x is modified anyway. This is misleading.
     Err("Something wrong happened !".to_owned())
 }
 
 // This test will expose the lying function :
 assert!(std::panic::catch_unwind(|| {
     let mut x = 3;
-    assert_not_modified(&mut x, |x| misleading_err(x)); // Panics
+    assert_not_modified!(x, modify_x_or_err(&mut x)); // Panics
 })
 .is_err());
 ```
-
